@@ -4,21 +4,7 @@
 🛑 It is advised not to use the AWS Root account[^1], except for tasks that require it.[^2]
 👮  Now with this, you can get **email alerts** *whenever the AWS Root account is used*.
 
-This CloudFormation template will use a .Zip file archive in an S3 bucket, which has a Python Lambda function[^3], 
-and will provision the following resources:
-  
-- CF Stack
-- EventBridge Rule
-- SNS Topic + Subscription(s)
-- Lambda Function & Application
-- IAM Role + In-line Policy (for Lambda Function)
-  
-  
-The CFN template & Lambda package is based on:
-- https://aws.amazon.com/premiumsupport/knowledge-center/root-user-account-eventbridge-rule/
-- https://aws.amazon.com/blogs/mt/monitor-and-notify-on-aws-account-root-user-activity/
-  
-  
+
 ## **IMPORTANT BEFORE YOU USE THIS**:  ⚠️
   
   ### FIRST: 
@@ -62,6 +48,23 @@ aws cloudformation create-stack --stack-name AWSRootUserAlerts \
 
 - *If need be*, enable debugging: go to Lambda --> Functions --> `NameOfCFStack`Function, and uncomment out the `logger.debug` lines in the Python script.
 - **But definitely go to** CloudWatch --> Log groups --> /aws/lambda/`NameOfCFStack`.
+
+
+This CloudFormation template will use a .Zip file archive in an S3 bucket, which has a Python Lambda function[^3], 
+and will provision the following resources:
+  
+- CF Stack
+- EventBridge Rule
+- SNS Topic + Subscription(s)
+- Lambda Function & Application
+- IAM Role + In-line Policy (for Lambda Function)
+  
+  
+The CFN template & Lambda package is based on:
+- https://aws.amazon.com/premiumsupport/knowledge-center/root-user-account-eventbridge-rule/
+- https://aws.amazon.com/blogs/mt/monitor-and-notify-on-aws-account-root-user-activity/
+  
+  
 
 ------------------------------------------------------------
 
