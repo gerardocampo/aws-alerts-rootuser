@@ -70,9 +70,9 @@ The CFN template & Lambda package is based on:
 
 "Prevention is ideal. But Detection is an absolute must."
 
->"The eyes of the Lord are in every place, 
->Keeping watch on the evil and the good."
-> - Proverbs 15:3
+"The eyes of the Lord are in every place, 
+  Keeping watch on the evil and the good."
+  ~ Proverbs 15:3
 
 
 
