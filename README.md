@@ -20,6 +20,19 @@ The CFN template & Lambda package is based on:
   
   
 ## **IMPORTANT BEFORE YOU USE THIS**:  
+  
+_Zip up the `RootActivityLambda.py`, upload the zip to an S3 bucket, and update the path of the file in CF template._
+  ```
+  zip -r -X RootActivityLambda.zip RootActivityLambda.py
+  ```
+  Upload this RootActivityLambda.zip file to your S3 bucket in this AWS account.
+  In the file `RootActivity.yaml`, find the `AWS::Lambda::Function` function, and update the values for `S3Bucket` and `S3Key`.
+  - `S3Bucket` is the name of the S3 bucket you uploaded the file to.
+  - `S3Key` is the path and filename.
+  So for example if the path of where you uploaded to is `S3:\\lmbda-functions\CF\RootActivityLambda.zip`
+  _then_ the `S3Bucket` is `lmbda-functions` and the `S3Key` is `CF/RootActivityLambda.zip`.
+  
+  
 _Enter the email address(es) to receive the notifications._  
   In the file `RootActivity.yaml`, find the `EmailSubscription` section(s), and update the value of the `Endpoint:` key.
 
