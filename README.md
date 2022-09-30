@@ -5,13 +5,13 @@
 👮  Now with this, you can get **email alerts** *whenever the AWS Root account is used*.
 
 This CloudFormation template will use a .Zip file archive in an S3 bucket, which has a Python Lambda function[^3], 
-and will create the following resources:
+and will provision the following resources:
   
 - CF Stack
 - EventBridge Rule
-- SNS Topic & Subscription(s)
+- SNS Topic + Subscription(s)
 - Lambda Function & Application
-- IAM Role & In-line Policy (for Lambda Function)
+- IAM Role + In-line Policy (for Lambda Function)
   
   
 The CFN template & Lambda package is based on:
@@ -22,7 +22,7 @@ The CFN template & Lambda package is based on:
 ## **IMPORTANT BEFORE YOU USE THIS**:  ⚠️
   
   ### FIRST: 
-1. **Zip** up the *RootActivityLambda.py*, and **upload** ⤴️ it to an S3 bucket.
+1. **Zip** up the *RootActivityLambda.py*, and **upload** ⤴️ it to an S3 bucket. 🪣
   - *Command in macOS:*  
   ```
   zip -r -X RootActivityLambda.zip RootActivityLambda.py
@@ -36,18 +36,18 @@ The CFN template & Lambda package is based on:
     - `S3Bucket` is the name of the S3 bucket you uploaded the file to. 
     - `S3Key` is the path and filename. 
     - So for example if the path of where you uploaded to is `S3:\\lmbda-functions\CF\RootActivityLambda.zip` 
-      - _then_ the `S3Bucket` is `lmbda-functions` 🪣
-      - and the `S3Key` is `CF/RootActivityLambda.zip`. 🗝️
+      - _then_ the `S3Bucket` is `lmbda-functions` 
+      - and the `S3Key` is `CF/RootActivityLambda.zip`. 🗝
   
   ### LASTLY: 
-3. Enter the **email address**(es) to receive the notifications. 📧
+3. Enter the **email address**(es) to receive the notifications. 
   - In the file *RootActivity.yaml*, find the `EmailSubscription` section(s), 
     - _as needed_, **uncomment** 👀👀 and add additional SNS subscriptions, 
     - and check/update the value of the `Endpoint:` key.  
-    - **SAVE IT.** 🤓
+    - **SAVE IT.** 🏦
 
 
-## Now, you're READY TO DEPLOY: 🦾
+## Now, you're READY TO DEPLOY: 🦾🤓
   if you're using AWS CLI and invoking CF, 
   you'll need the `CAPABILITY_IAM` & `CAPABILITY_NAMED_IAM` capabilities: ✔️
 
