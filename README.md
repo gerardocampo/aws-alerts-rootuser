@@ -1,12 +1,12 @@
 # aws-alerts-rootuser
 
-Purpose:
+**Purpose:**
 It is advised not to use the AWS Root account[^1], except for tasks that require it.[^2]
-
-With this, email alerts will be sent whenever the AWS Root account is used.
+  Now with this, you can get **email alerts** *whenever the AWS Root account is used*.
 
 This CloudFormation template will use a .Zip file archive in an S3 bucket, which has a Python Lambda function[^3], 
 and will create the following resources:
+  
 - CF Stack
 - EventBridge Rule
 - SNS Topic & Subscription(s)
