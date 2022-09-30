@@ -22,7 +22,7 @@ The CFN template & Lambda package is based on:
 ## **IMPORTANT BEFORE YOU USE THIS**:  ⚠️
   
   ### FIRST: 
-1. **Zip** up the *RootActivityLambda.py*, and **upload** it to an S3 bucket.
+1. **Zip** 🤐 up the *RootActivityLambda.py*, and **upload** ⤴️ it to an S3 bucket.
   - *Command in macOS:*  
   ```
   zip -r -X RootActivityLambda.zip RootActivityLambda.py
@@ -31,25 +31,25 @@ The CFN template & Lambda package is based on:
   
   
   ### THEN: 
-2. **Specify where the S3 bucketname and path of the zip** file is, in the CF template.
-  - In the file *RootActivity.yaml*, find the `AWS::Lambda::Function` function, and update the values for `S3Bucket` and `S3Key`.
-    - `S3Bucket` is the name of the S3 bucket you uploaded the file to.
-    - `S3Key` is the path and filename.
+2. **Specify 👀 where the S3 bucketname and path of the zip** file is, in the CF template.
+  - In the file *RootActivity.yaml*, find the `AWS::Lambda::Function` function, and update the values for `S3Bucket` 🪣 and `S3Key` 🗝️.
+    - `S3Bucket` is the name of the S3 bucket you uploaded the file to. 🧐
+    - `S3Key` is the path and filename. 🧐 
     - So for example if the path of where you uploaded to is `S3:\\lmbda-functions\CF\RootActivityLambda.zip` 
-      - _then_ the `S3Bucket` is `lmbda-functions` 
-      - and the `S3Key` is `CF/RootActivityLambda.zip`.
+      - _then_ the `S3Bucket` is `lmbda-functions` 🪣
+      - and the `S3Key` is `CF/RootActivityLambda.zip`. 🗝️
   
   ### LASTLY: 
-3. Enter the **email address**(es) to receive the notifications.  
+3. Enter the **email address**(es) to receive the notifications. 📧
   - In the file *RootActivity.yaml*, find the `EmailSubscription` section(s), 
     - _as needed_, **uncomment** 👀👀 and add additional SNS subscriptions, 
     - and check/update the value of the `Endpoint:` key.  
-    - **SAVE IT.**
+    - **SAVE IT.** 🤓
 
 
 ## Now, you're READY TO DEPLOY: 🦾
   if you're using AWS CLI and invoking CF, 
-  you'll need the `CAPABILITY_IAM` & `CAPABILITY_NAMED_IAM` capabilities:
+  you'll need the `CAPABILITY_IAM` & `CAPABILITY_NAMED_IAM` capabilities: ✔️
 
 ```
 aws cloudformation create-stack --stack-name AWSRootUserAlerts \
