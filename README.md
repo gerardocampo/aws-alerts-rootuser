@@ -25,7 +25,7 @@
   ```
   zip -r -X RootActivityLambda.zip RootActivityLambda.py
   ```
-  - Upload this __*RootActivityLambda.zip*__ file to your S3 bucket 🪣 in this AWS account. 
+  - Upload 🔼 this __*RootActivityLambda.zip*__ file to your S3 bucket 🪣 in this AWS account. 
   
   
   #### THEN: 
