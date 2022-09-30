@@ -12,13 +12,13 @@ and will create the following resources:
 - SNS Topic & Subscription(s)
 - Lambda Function & Application
 - IAM Role & In-line Policy (for Lambda Function)
-
-The CFN template is based on:
+  
+  
+The CFN template & Lambda package is based on:
 - https://aws.amazon.com/premiumsupport/knowledge-center/root-user-account-eventbridge-rule/
-And the Lambda Python package is based on:
 - https://aws.amazon.com/blogs/mt/monitor-and-notify-on-aws-account-root-user-activity/
-
-
+  
+  
 **IMPORTANT BEFORE YOU USE THIS**:  
 
 In the `RootActivity.yaml` file, update the `EmailSubscription` section(s), particularly the `Endpoint:` value(s).
@@ -33,7 +33,8 @@ aws cloudformation create-stack --stack-name AWSRootUserAlerts \
   --template-body file://RootActivity.yaml \
   --capabilities "CAPABILITY_IAM" "CAPABILITY_NAMED_IAM"
 ```
-
+  
+  
 ------------------------------------------------------------
 
 "Prevention is ideal. But Detection is an absolute must."
