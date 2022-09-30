@@ -1,7 +1,7 @@
 # aws-alerts-rootuser
 
-**Purpose:**
-It is advised not to use the AWS Root account[^1], except for tasks that require it.[^2]
+### Purpose:
+It is advised 🛑 not to use the AWS Root account[^1], except for tasks that require it.[^2]
   Now with this, you can get **email alerts** *whenever the AWS Root account is used*.
 
 This CloudFormation template will use a .Zip file archive in an S3 bucket, which has a Python Lambda function[^3], 
@@ -19,7 +19,7 @@ The CFN template & Lambda package is based on:
 - https://aws.amazon.com/blogs/mt/monitor-and-notify-on-aws-account-root-user-activity/
   
   
-## **IMPORTANT BEFORE YOU USE THIS**:  
+## **IMPORTANT BEFORE YOU USE THIS**:  ⚠️
   
   ### FIRST: 
 1. **Zip** up the *RootActivityLambda.py*, and **upload** it to an S3 bucket.
@@ -42,12 +42,12 @@ The CFN template & Lambda package is based on:
   ### LASTLY: 
 3. Enter the **email address**(es) to receive the notifications.  
   - In the file *RootActivity.yaml*, find the `EmailSubscription` section(s), 
-    - _as needed_ **uncomment** lines (and add additional SNS subscriptions), 
+    - _as needed_ **uncomment** 👀 and add additional SNS subscriptions, 
     - and check/update the value of the `Endpoint:` key.  
     - **SAVE IT.**
 
 
-## Now, you're READY TO DEPLOY:
+## Now, you're READY TO DEPLOY: 🦾
   if you're using AWS CLI and invoking CF, 
   you'll need the `CAPABILITY_IAM` & `CAPABILITY_NAMED_IAM` capabilities:
 
