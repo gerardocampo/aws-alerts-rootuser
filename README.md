@@ -22,6 +22,7 @@ _BEFORE YOU USE THIS_:
 In the `RootActivity.yaml` file, update the `EmailSubscription` section(s), particularly the `Endpoint:` value(s).
 
 When invoking CF via CLI, you'll need the "CAPABILITY_IAM" & "CAPABILITY_NAMED_IAM" capabilities:
+
 `aws cloudformation create-stack --stack-name AWSRootUserAlerts --template-body file://RootActivity.yaml --capabilities "CAPABILITY_IAM" "CAPABILITY_NAMED_IAM"`
 
 
