@@ -29,7 +29,7 @@
   ### LASTLY: 
 3. Enter the **email address**(es) to receive the notifications. 
   - In the file *RootActivity.yaml*, find the `EmailSubscription` section(s), 
-    - _as needed_, **uncomment** 👀👀 and add additional SNS subscriptions, 
+    - _as needed_, **uncomment** 👀👀 and add additional SNS 📨 subscriptions, 
     - and check/update the value of the `Endpoint:` key.  
     - **SAVE IT.** 🏦
 
