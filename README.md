@@ -18,11 +18,14 @@ The CFN template is based on:
 And the Lambda Python package is based on:
 - https://aws.amazon.com/blogs/mt/monitor-and-notify-on-aws-account-root-user-activity/
 
-_BEFORE YOU USE THIS_:  
+
+**IMPORTANT BEFORE YOU USE THIS**:  
 
 In the `RootActivity.yaml` file, update the `EmailSubscription` section(s), particularly the `Endpoint:` value(s).
 
-When invoking CF via CLI, you'll need the "CAPABILITY_IAM" & "CAPABILITY_NAMED_IAM" capabilities:
+
+When you're ready to deploy, if you're using AWS CLI and invoking CF, 
+  you'll need the "CAPABILITY_IAM" & "CAPABILITY_NAMED_IAM" capabilities:
 
 ```
 aws cloudformation create-stack --stack-name AWSRootUserAlerts \
