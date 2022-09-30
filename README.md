@@ -22,10 +22,11 @@ The CFN template & Lambda package is based on:
 ## **IMPORTANT BEFORE YOU USE THIS**:  
   
 1. _Zip up the `RootActivityLambda.py`, upload the zip to an S3 bucket._
+  -
   ```
   zip -r -X RootActivityLambda.zip RootActivityLambda.py
   ```
-  Upload this RootActivityLambda.zip file to your S3 bucket in this AWS account.
+  - Upload this RootActivityLambda.zip file to your S3 bucket in this AWS account.
   
   
 2. _Specify where the S3 bucketname and path of the zip file is, in the CF template._
