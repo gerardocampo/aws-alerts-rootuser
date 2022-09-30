@@ -24,7 +24,8 @@ And the Lambda Python package is based on:
 In the `RootActivity.yaml` file, update the `EmailSubscription` section(s), particularly the `Endpoint:` value(s).
 
 
-When you're ready to deploy, if you're using AWS CLI and invoking CF, 
+## When you're ready to deploy
+  if you're using AWS CLI and invoking CF, 
   you'll need the `CAPABILITY_IAM` & `CAPABILITY_NAMED_IAM` capabilities:
 
 ```
@@ -33,7 +34,7 @@ aws cloudformation create-stack --stack-name AWSRootUserAlerts \
   --capabilities "CAPABILITY_IAM" "CAPABILITY_NAMED_IAM"
 ```
 
-
+------------------------------------------------------------
 
 "Prevention is ideal. But Detection is an absolute must."
 
