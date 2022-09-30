@@ -13,7 +13,7 @@
 
 
 ### Purpose:
-🛑 It is advised not to use the AWS Root account[^1], except for tasks that require it.[^2]
+🛑 It is advised _**not**_ to use the AWS Root account[^1], except for tasks that require it.[^2]
   👮  You can use this setup to send **email alerts** *whenever the AWS Root account is used*.
 
 
