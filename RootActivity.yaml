@@ -52,7 +52,7 @@ Resources:
   EmailSubscription1:
     Type: AWS::SNS::Subscription
     Properties:
-      Endpoint: (ENTER EMAIL ADDRESS HERE)
+      Endpoint: #(ENTER EMAIL ADDRESS HERE)
       Protocol: email
       TopicArn: !Ref RootActivitySNSTopic
 #  EmailSubscription2:
@@ -84,8 +84,8 @@ Resources:
     Type: AWS::Lambda::Function
     Properties:
       Code:
-        S3Bucket: lmbda-functions
-        S3Key: CF/RootActivityLambda.zip
+        S3Bucket: # ENTER S3 BUCKET NAME HERE (example, if S3 bucket is "S3:\\lmbda-functions", then without quotes: "lmbda-functions")
+        S3Key: # ENTER PATH IN THE BUCKET OF ZIP FILE HERE (including the filename. example, if in a folder "CF", then without quotes: "CF\RootActivityLambda.zip")
       Environment:
         Variables:
           SNSARN : !Ref RootActivitySNSTopic
