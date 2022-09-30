@@ -14,7 +14,7 @@
 
 ### Purpose:
 🛑 It is advised not to use the AWS Root account[^1], except for tasks that require it.[^2]
-  👮  The function sends **email alerts** *whenever the AWS Root account is used*.
+  👮  You can use this setup to send **email alerts** *whenever the AWS Root account is used*.
 
 
 ## **IMPORTANT BEFORE YOU USE THIS**:  ⚠️
