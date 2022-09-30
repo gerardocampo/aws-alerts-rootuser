@@ -22,7 +22,7 @@ The CFN template & Lambda package is based on:
 ## **IMPORTANT BEFORE YOU USE THIS**:  
   
 1. _Zip up the `RootActivityLambda.py`, upload the zip to an S3 bucket._
-  -
+  - Command in macOS: 
   ```
   zip -r -X RootActivityLambda.zip RootActivityLambda.py
   ```
