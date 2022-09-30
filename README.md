@@ -18,7 +18,8 @@ The CFN template is based on:
 And the Lambda Python package is based on:
 - https://aws.amazon.com/blogs/mt/monitor-and-notify-on-aws-account-root-user-activity/
 
-_BEFORE YOU USE THIS_:
+_BEFORE YOU USE THIS_:  
+
 In the `RootActivity.yaml` file, update the `EmailSubscription` section(s), particularly the `Endpoint:` value(s).
 
 When invoking CF via CLI, you'll need the "CAPABILITY_IAM" & "CAPABILITY_NAMED_IAM" capabilities:
