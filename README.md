@@ -49,7 +49,7 @@ aws cloudformation create-stack --stack-name AWSRootUserAlerts \
 - *If need be*, enable debugging: go to Lambda --> Functions --> `NameOfCFStack`Function, and uncomment out the `logger.debug` lines in the Python script.
 - **But definitely go to** CloudWatch --> Log groups --> /aws/lambda/`NameOfCFStack`.
 
-
+## Information & References 📖
 This CloudFormation template will use a .Zip file archive in an S3 bucket, which has a Python Lambda function[^3], 
 and will provision the following resources:
   
