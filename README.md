@@ -25,7 +25,7 @@ In the `RootActivity.yaml` file, update the `EmailSubscription` section(s), part
 
 
 When you're ready to deploy, if you're using AWS CLI and invoking CF, 
-  you'll need the "CAPABILITY_IAM" & "CAPABILITY_NAMED_IAM" capabilities:
+  you'll need the `CAPABILITY_IAM` & `CAPABILITY_NAMED_IAM` capabilities:
 
 ```
 aws cloudformation create-stack --stack-name AWSRootUserAlerts \
@@ -33,6 +33,13 @@ aws cloudformation create-stack --stack-name AWSRootUserAlerts \
   --capabilities "CAPABILITY_IAM" "CAPABILITY_NAMED_IAM"
 ```
 
+
+
+"Prevention is ideal. But Detection is an absolute must."
+
+>"The eyes of the Lord are in every place, 
+>Keeping watch on the evil and the good."
+> - Proverbs 15:3
 
 
 
