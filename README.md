@@ -19,12 +19,12 @@ The CFN template & Lambda package is based on:
 - https://aws.amazon.com/blogs/mt/monitor-and-notify-on-aws-account-root-user-activity/
   
   
-**IMPORTANT BEFORE YOU USE THIS**:  
+## **IMPORTANT BEFORE YOU USE THIS**:  
 _Enter the email address(es) to receive the notifications._
 In the file `RootActivity.yaml`, find the `EmailSubscription` section(s), and update the `Endpoint:` value(s).
 
 
-## When you're ready to deploy
+### When you're ready to deploy
   if you're using AWS CLI and invoking CF, 
   you'll need the `CAPABILITY_IAM` & `CAPABILITY_NAMED_IAM` capabilities:
 
