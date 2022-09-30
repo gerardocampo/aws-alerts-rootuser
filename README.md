@@ -1,8 +1,17 @@
 # aws-alerts-rootuser
 
+"Prevention is ideal. But Detection is an absolute must."
+
+"The eyes of the Lord are in every place, 
+  Keeping watch on the evil and the good."
+  ~ Proverbs 15:3
+
+------------------------------------------------------------
+
+
 ### Purpose:
 🛑 It is advised not to use the AWS Root account[^1], except for tasks that require it.[^2]
-👮  Now with this, you can get **email alerts** *whenever the AWS Root account is used*.
+  👮  The function sends **email alerts** *whenever the AWS Root account is used*.
 
 
 ## **IMPORTANT BEFORE YOU USE THIS**:  ⚠️
@@ -68,11 +77,6 @@ The CFN template & Lambda package is based on:
 
 ------------------------------------------------------------
 
-"Prevention is ideal. But Detection is an absolute must."
-
-"The eyes of the Lord are in every place, 
-  Keeping watch on the evil and the good."
-  ~ Proverbs 15:3
 
 
 
