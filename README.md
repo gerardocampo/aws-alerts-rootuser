@@ -19,7 +19,7 @@
 
 ## **IMPORTANT BEFORE YOU USE THIS**:  ⚠️
   
-  ### FIRST: 
+  #### FIRST: 
 1. **Zip** up Python file __*RootActivityLambda.py*__, and **upload** ⤴️ the **zip** file to S3.
   - *Command in macOS:*  
   ```
