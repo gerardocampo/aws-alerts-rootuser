@@ -38,7 +38,7 @@ The CFN template & Lambda package is based on:
       - `S3Key` is the path and filename. 
     - _So for example_... if the path of where you uploaded to is `S3:\\lmbda-functions\CF\RootActivityLambda.zip`, 
       - _then_ `S3Bucket: lmbda-functions` 
-      - **_and,_** `S3Key: CF/RootActivityLambda.zip`. 🗝
+      - **_and,_** `S3Key: CF/RootActivityLambda.zip`
   
   ### LASTLY: 
 3. Enter the **email address**(es) to receive the notifications. 
