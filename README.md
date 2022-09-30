@@ -41,7 +41,7 @@ The CFN template & Lambda package is based on:
   
   ### LASTLY: 
 3. Enter the **email address**(es) to receive the notifications.  
-  In the file *RootActivity.yaml*, find the `EmailSubscription` section, **_uncomment_** where necessary, and update the value of the `Endpoint:` key.  **SAVE IT.**
+  In the file *RootActivity.yaml*, find the `EmailSubscription` section, where necessary **_uncomment_** lines (and add additional SNS subscriptions) and check/update the value of the `Endpoint:` key.  **SAVE IT.**
 
 
 ## Now, you're READY TO DEPLOY:
