@@ -2,8 +2,6 @@
 
 Purpose:
 It is advised not to use the AWS Root account, except for tasks that require it.[^1]
-- https://docs.aws.amazon.com/general/latest/gr/root-vs-iam.html#aws_tasks-that-require-root
-- https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html
 
 With this, email alerts will be sent whenever the AWS Root account is used.
 
