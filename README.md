@@ -57,7 +57,7 @@ aws cloudformation create-stack --stack-name AWSRootUserAlerts \
   --capabilities "CAPABILITY_IAM" "CAPABILITY_NAMED_IAM"
 ```
   
-## For Troubleshooting  🔨
+## For Troubleshooting  🛠️ 😫
 
 - *If need be*, enable debugging: go to Lambda --> Functions --> `NameOfCFStack`Function, and uncomment out the `logger.debug` lines in the Python script.
 - **But definitely go to** CloudWatch --> Log groups --> /aws/lambda/`NameOfCFStack`.
