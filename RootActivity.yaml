@@ -1,0 +1,158 @@
+#####################################################################################################
+#
+# ABOUT
+#
+#  This is an AWS CloudFormation Template creates resource that will send alerts on AWS Root Activity, based on:
+#     https://aws.amazon.com/premiumsupport/knowledge-center/root-user-account-eventbridge-rule/
+#  And relies on a Lambda Python package, based on:
+#     https://aws.amazon.com/blogs/mt/monitor-and-notify-on-aws-account-root-user-activity/
+#
+#   Together, the CF template & the Lambda function/application, will provision the following resources:
+#     * CF Stack
+#     * EventBridge Rule
+#     * SNS Topic & Subscriptions
+#     * Lambda Function & Application
+#     * IAM Role & In-line Policy (for Lambda Function)
+#
+#   Update the following as needed:
+#     * Email sender display name, update:  RootActivitySNSTopic -> DisplayName
+#     * Email recipients, update: EmailSubscription -> endpoint(s).
+#     * To get alerts for AWS console logins & API calls ONLY instead of everything,
+#       then update detail-type in the RootActivityEventsRule section below:
+#         See "AWS::Events::Rule" --> "detail-type",
+#          and replace:
+#               - prefix: ''
+#          with below:
+#               - AWS Console Sign In via CloudTrail
+#               - AWS API Call via CloudTrail
+#  Invoke CF:
+#     aws cloudformation create-stack --stack-name AWSRootUserAlerts \
+#       --template-body file://RootActivity.yaml \
+#       --capabilities "CAPABILITY_IAM" "CAPABILITY_NAMED_IAM"
+#
+####################################################################################################
+#
+# VERSION HISTORY
+#
+#    1.0, 18-Sept-2022, Gerard Ocampo
+#    1.1, 29-Sept-2022, Gerard Ocampo - removed spacing and updated comments.
+#
+####################################################################################################
+
+
+AWSTemplateFormatVersion: '2010-09-09'
+Description: AWS-ROOT-Activity-via-CloudTrail
+Resources:
+  RootActivitySNSTopic:
+    Type: AWS::SNS::Topic
+    Properties:
+      DisplayName: Zelis AWS Root Activity Alerts
+      TopicName:
+        Fn::Sub: '${AWS::StackName}-SNSTopic'
+  EmailSubscription1:
+    Type: AWS::SNS::Subscription
+    Properties:
+      Endpoint: (ENTER EMAIL ADDRESS HERE)
+      Protocol: email
+      TopicArn: !Ref RootActivitySNSTopic
+#  EmailSubscription2:
+#    Type: AWS::SNS::Subscription
+#    Properties:
+#      Endpoint: (ENTER EMAIL ADDRESS HERE)
+#      Protocol: email
+#      TopicArn: !Ref RootActivitySNSTopic
+  RootActivityEventsRule:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Events rule for monitoring AWS ROOT activity
+      EventPattern:
+        detail-type:
+        - prefix: ''
+        detail:
+          userIdentity:
+            type:
+            - Root
+      Name:
+        Fn::Sub: '${AWS::StackName}-EventsRule'
+      State: ENABLED
+      Targets:
+      - Arn: !GetAtt RootActivityLambdaFunction.Arn
+        Id: !Ref AWS::StackName
+    DependsOn:
+    - RootActivitySNSTopic
+  RootActivityLambdaFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      Code:
+        S3Bucket: lmbda-functions
+        S3Key: CF/RootActivityLambda.zip
+      Environment:
+        Variables:
+          SNSARN : !Ref RootActivitySNSTopic
+      FunctionName:
+        Fn::Sub: '${AWS::StackName}-Function'
+      Handler: RootActivityLambda.lambda_handler
+      Role: !GetAtt RootActivityIAMRole.Arn
+      Runtime: python3.9
+      Timeout: 10
+  RootActivityIAMRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: 'Allow'
+            Principal:
+              Service:
+                - 'lambda.amazonaws.com'
+            Action:
+              - 'sts:AssumeRole'
+      Description: Zelis SecOps; CF-created; enables resource access for Lambda function to alert on AWS root account activity.
+      RoleName:
+        Fn::Sub: '${AWS::StackName}-LambdaIAMRole'
+  RootActivityIAMPolicy:
+    Type: AWS::IAM::Policy
+    DependsOn: RootActivityIAMRole
+    Properties:
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Sid: LogStreamAccess
+            Effect: Allow
+            Action:
+              - 'logs:CreateLogGroup'
+              - 'logs:CreateLogStream'
+              - 'logs:PutLogEvents'
+            Resource: 'arn:aws:logs:*:*:*'
+          - Sid: SNSPublishAllow
+            Effect: Allow
+            Action: sns:Publish
+            Resource: arn:aws:sns:*:*:*
+          - Sid: ListAccountAlias
+            Effect: Allow
+            Action: iam:ListAccountAliases
+            Resource: '*'
+      PolicyName:
+        Fn::Sub: '${AWS::StackName}-LambdaIAMPolicy'
+      Roles:
+        - Ref: RootActivityIAMRole
+  RootActivityLambdaPerm:
+    Type: AWS::Lambda::Permission
+    Properties:
+      Action: lambda:InvokeFunction
+      FunctionName: !Ref RootActivityLambdaFunction
+      Principal: events.amazonaws.com
+      SourceArn: !GetAtt RootActivityEventsRule.Arn
+Outputs:
+  RootActivityEventsRule:
+    Value: !Ref RootActivityEventsRule
+    Export:
+      Name:
+        Fn::Sub: '${AWS::StackName}-EventsRuleID'
+    Description: Event Rule ID.
+  RootActivityLambdaFuncName:
+    Value: !Ref RootActivityLambdaFunction
+    Export:
+      Name:
+        Fn::Sub: '${AWS::StackName}-Lambda'
+    Description: Lambda function logical ID.
