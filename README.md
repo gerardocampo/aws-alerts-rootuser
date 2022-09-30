@@ -1,11 +1,14 @@
 # aws-alerts-rootuser
 
-"Prevention is ideal. But Detection is an absolute must."
 
 "The eyes of the Lord are in every place, 
   Keeping watch on the evil and the good."
   ~ Proverbs 15:3
-
+  
+  
+"Prevention is ideal. But Detection is an absolute must."
+  
+  
 ------------------------------------------------------------
 
 
