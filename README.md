@@ -20,8 +20,8 @@
 2. **Specify 👀 where the S3 bucketname and path of the zip** file is, in the CF template.
   - In the CFN file __*RootActivity.yaml*__, find the `AWS::Lambda::Function` function, and update the values for `S3Bucket` 🪣 and `S3Key` 🗝️.
     - NOTE: 
-      - `S3Bucket` is the name of the S3 bucket you uploaded the file to. 
-      - `S3Key` is the path and filename. 
+      - `S3Bucket` 🪣 is the name of the S3 bucket you uploaded the file to. 
+      - `S3Key` 🗝️ is the path and filename. 
     - _So for example_... if the path of where you uploaded to is `S3:\\lmbda-functions\CF\RootActivityLambda.zip`, 
       - _then_ `S3Bucket: lmbda-functions` 
       - **_and,_** `S3Key: CF/RootActivityLambda.zip`
