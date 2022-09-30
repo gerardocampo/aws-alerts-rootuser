@@ -52,7 +52,7 @@ Resources:
   EmailSubscription1:
     Type: AWS::SNS::Subscription
     Properties:
-      Endpoint: #(ENTER EMAIL ADDRESS HERE)
+      Endpoint: dl-security-alerts-aws@zelis.com
       Protocol: email
       TopicArn: !Ref RootActivitySNSTopic
 #  EmailSubscription2:
