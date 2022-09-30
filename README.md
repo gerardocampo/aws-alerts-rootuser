@@ -28,7 +28,7 @@
   - Upload this __*RootActivityLambda.zip*__ file to your S3 bucket 🪣 in this AWS account. 
   
   
-  ### THEN: 
+  #### THEN: 
 2. **Specify 👀 where the S3 bucketname and path of the zip** file is, in the CF template.
   - In the CFN file __*RootActivity.yaml*__, find the `AWS::Lambda::Function` function, and update the values for `S3Bucket` and `S3Key`.
     - NOTE: 
@@ -38,7 +38,7 @@
       - _then_ `S3Bucket: lmbda-functions` 
       - **_and,_** `S3Key: CF/RootActivityLambda.zip`
   
-  ### LASTLY: 
+  #### LASTLY: 
 3. Enter the **email address**(es) to receive the notifications. 
   - In the file *RootActivity.yaml*, find the `EmailSubscription` (or `AWS::SNS::Subscription`) section(s), 
     - _as needed_, **uncomment** #️⃣👀 and add additional SNS 📨 subscriptions, 
