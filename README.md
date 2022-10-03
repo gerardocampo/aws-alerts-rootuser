@@ -47,7 +47,7 @@
     - **SAVE IT.** 🏦
 
 
-## Now, you're READY TO DEPLOY: 🦾🤓
+## Now, you're READY TO DEPLOY: 🦾
   if you're using AWS CLI and invoking CF, 
   you'll need the `CAPABILITY_IAM` & `CAPABILITY_NAMED_IAM` capabilities: ✔️
 
@@ -57,7 +57,7 @@ aws cloudformation create-stack --stack-name AWSRootUserAlerts \
   --capabilities "CAPABILITY_IAM" "CAPABILITY_NAMED_IAM"
 ```
   
-### For Troubleshooting  🛠️ 🧐
+### For Troubleshooting  🛠️ 
 
 - *If need be*, enable debugging: go to Lambda --> Functions --> `NameOfCFStack`Function, and uncomment #️⃣ out the `logger.debug` lines in the Python script.
 - **But definitely go to** CloudWatch --> Log groups --> /aws/lambda/`NameOfCFStack`.
