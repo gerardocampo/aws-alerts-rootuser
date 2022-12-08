@@ -20,12 +20,12 @@
 ## **IMPORTANT BEFORE YOU USE THIS**:  ⚠️
   
   #### FIRST: 
-1. **Zip** up Python file __*RootActivityLambda.py*__, and **upload** ⤴️ the **zip** file to S3.
+1. **Zip** up Python file __*RootActivityLambda.py*__, and **upload** ⬆️ the **zip** file to S3.
   - *Command in macOS:*  
   ```
   zip -r -X RootActivityLambda.zip RootActivityLambda.py
   ```
-  - Upload ⬆️ this __*RootActivityLambda.zip*__ file to your S3 bucket 🪣 in this AWS account. 
+  - Upload this __*RootActivityLambda.zip*__ file to your S3 bucket 🪣 in this AWS account. 
   
   
   #### THEN: 
