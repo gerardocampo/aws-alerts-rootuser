@@ -29,7 +29,7 @@
   
   
   #### THEN: 
-2. **Specify 👀 where the file is**, the S3 bucketname and path.
+2. **Specify 👀 where the file is** - the S3 bucketname and path:
   - In __*RootActivity.yaml*__, 
     - find the `AWS::Lambda::Function` function,
     - update the values for `S3Bucket` and `S3Key`.
