@@ -49,7 +49,7 @@
     - **SAVE IT.** 🏦
 
 
-## Now, you're READY TO DEPLOY: 🦾
+## OK, you are READY: 🦾
   if using AWS CLI and invoking CF, you need capabilities:
    - `CAPABILITY_IAM` ✔️
    - `CAPABILITY_NAMED_IAM` ✔️
