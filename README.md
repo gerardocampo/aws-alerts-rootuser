@@ -13,43 +13,46 @@
 
 
 ### Purpose:
-🛑 It is advised _**not**_ to use the AWS Root account[^1], except for tasks that require it.[^2]
+🛑 Except for tasks that require it[^2], it is advised _**NOT**_ to use the AWS Root account[^1].
   👮  You can use this setup to send **email alerts** *whenever the AWS Root account is used*.
 
 
 ## **IMPORTANT BEFORE YOU USE THIS**:  ⚠️
   
   #### FIRST: 
-1. **Zip** up Python file __*RootActivityLambda.py*__, and **upload** ⬆️ the **zip** file to S3.
+1. **Zip** up __*RootActivityLambda.py*__, and **upload** ⬆️ the **zip** file to S3.
   - *Command in macOS:*  
   ```
   zip -r -X RootActivityLambda.zip RootActivityLambda.py
   ```
-  - Upload this __*RootActivityLambda.zip*__ file to your S3 bucket 🪣 in this AWS account. 
+  - Upload __*RootActivityLambda.zip*__ file to private S3 bucket 🪣 in this AWS account. 
   
   
   #### THEN: 
-2. **Specify 👀 where the S3 bucketname and path of the zip** file is.
-  - In the CloudFormation template file __*RootActivity.yaml*__, 
-    - find the `AWS::Lambda::Function` function, and update the values for `S3Bucket` and `S3Key`.
+2. **Specify 👀 where the file is**, the S3 bucketname and path.
+  - In __*RootActivity.yaml*__, 
+    - find the `AWS::Lambda::Function` function,
+    - update the values for `S3Bucket` and `S3Key`.
       - NOTE: 
         - `S3Bucket` 🪣 is the name of the S3 bucket you uploaded the file to. 
         - `S3Key` 🗝️ is the path and filename. 
-    - _So for example_... let's say the path of where you uploaded to is `S3:\\lmbda-functions\CF\RootActivityLambda.zip`, 
+    - _For example_... if path of where you uploaded zipped python script to is `S3:\\lmbda-functions\CF\RootActivityLambda.zip`, 
       - _then_... `S3Bucket: lmbda-functions` 
       - **_and,_**... `S3Key: CF/RootActivityLambda.zip`
   
   #### LASTLY: 
-3. Enter the **email address**(es) to receive the notifications. 
-  - In the file *RootActivity.yaml*, find the `EmailSubscription` (or `AWS::SNS::Subscription`) section(s), 
+3. Enter **email address**(es) to receive the notifications. 
+  - In *RootActivity.yaml*, 
+    - find the `EmailSubscription` (or `AWS::SNS::Subscription`) section(s), 
     - _as needed_, **uncomment** #️⃣👀 and add additional SNS 📨 subscriptions, 
     - and check/update the value of the `Endpoint:` key.  
     - **SAVE IT.** 🏦
 
 
 ## Now, you're READY TO DEPLOY: 🦾
-  if you're using AWS CLI and invoking CF, 
-  you'll need the `CAPABILITY_IAM` & `CAPABILITY_NAMED_IAM` capabilities: ✔️
+  if using AWS CLI and invoking CF, you need capabilities:
+   - `CAPABILITY_IAM` ✔️
+   - `CAPABILITY_NAMED_IAM` ✔️
 
 ```
 aws cloudformation create-stack --stack-name AWSRootUserAlerts \
@@ -59,8 +62,10 @@ aws cloudformation create-stack --stack-name AWSRootUserAlerts \
   
 ### For Troubleshooting  🛠️ 
 
-- *If need be*, enable debugging: go to Lambda --> Functions --> `NameOfCFStack`Function, and uncomment #️⃣ out the `logger.debug` lines in the Python script.
-- **But definitely go to** CloudWatch --> Log groups --> /aws/lambda/`NameOfCFStack`.
+- **Go to** CloudWatch --> Log groups --> /aws/lambda/`NameOfCFStack`.
+- *If need be*, enable debugging: 
+  - go to Lambda --> Functions --> `NameOfCFStack`Function, 
+  - and uncomment #️⃣ out the `logger.debug` lines in the Python script.
 
 ### Information & References 📖
 This CloudFormation template will use a .Zip file archive in an S3 bucket, which has a Python Lambda function[^3], 
