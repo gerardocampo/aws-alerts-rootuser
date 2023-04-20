@@ -46,19 +46,19 @@ Resources:
   RootActivitySNSTopic:
     Type: AWS::SNS::Topic
     Properties:
-      DisplayName: Zelis AWS Root Activity Alerts
+      DisplayName: AWS Root Activity Alerts
       TopicName:
         Fn::Sub: '${AWS::StackName}-SNSTopic'
   EmailSubscription1:
     Type: AWS::SNS::Subscription
     Properties:
-      Endpoint: #dl-security-alerts-aws@zelis.com
+      Endpoint: # (example: dl-security-alerts-aws@zyxwv.com)
       Protocol: email
       TopicArn: !Ref RootActivitySNSTopic
 #  EmailSubscription2:
 #    Type: AWS::SNS::Subscription
 #    Properties:
-#      Endpoint: (ENTER EMAIL ADDRESS HERE)
+#      Endpoint: [ENTER EMAIL ADDRESS HERE]
 #      Protocol: email
 #      TopicArn: !Ref RootActivitySNSTopic
   RootActivityEventsRule:
@@ -107,7 +107,7 @@ Resources:
                 - 'lambda.amazonaws.com'
             Action:
               - 'sts:AssumeRole'
-      Description: Zelis SecOps; CF-created; enables resource access for Lambda function to alert on AWS root account activity.
+      Description: Security Operations; CF-created; enables resource access for Lambda function to alert on AWS root account activity.
       RoleName:
         Fn::Sub: '${AWS::StackName}-LambdaIAMRole'
   RootActivityIAMPolicy:
