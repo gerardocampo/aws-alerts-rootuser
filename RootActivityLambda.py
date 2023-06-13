@@ -73,7 +73,7 @@ def lambda_handler(event, context):
 	except ClientError as e:
 		logger.error("Client Error occured")
 
-	MsgHuman = "Greetings Zelis Human: \n\nPlease be advised, activity has been detected for the AWS *root* user (in account alias %s, account #: %s).\n\nIt is not recommended to use the Root account, except for tasks that require it.\n\nIMPORTANT: If this activity is unexpected, please follow-up ASAP and respond accordingly.\n\nEvent Summary:\n\teventName: %s\n\tnotificationSource: %s\n\tsourceIP: %s\n\tuserAgent: %s\n\tdate/time: %s\n\tCloudTrail eventID: %s\n\nhttps://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html\nhttps://docs.aws.amazon.com/general/latest/gr/root-vs-iam.html#aws_tasks-that-require-root\n\n" % (accntAliase, account, eventname, source, sourceip, useragent, eventtime, eventid)
+	MsgHuman = "Greetings Human: \n\nPlease be advised, activity has been detected for the AWS *root* user (in account alias %s, account #: %s).\n\nIt is not recommended to use the Root account, except for tasks that require it.\n\nIMPORTANT: If this activity is unexpected, please follow-up ASAP and respond accordingly.\n\nEvent Summary:\n\teventName: %s\n\tnotificationSource: %s\n\tsourceIP: %s\n\tuserAgent: %s\n\tdate/time: %s\n\tCloudTrail eventID: %s\n\nhttps://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html\nhttps://docs.aws.amazon.com/general/latest/gr/root-vs-iam.html#aws_tasks-that-require-root\n\n" % (accntAliase, account, eventname, source, sourceip, useragent, eventtime, eventid)
 	BufferHumanJson = "......................................... Below is data of the event that triggered this notification. ............................................"
 	Msg = MsgHuman + "\n" + BufferHumanJson + "\n\n" + MsgJson
 
